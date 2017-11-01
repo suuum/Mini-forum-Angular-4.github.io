@@ -1,0 +1,32 @@
+<div class="card-body">
+  <div class="row border_post" >
+    <div class="col-sm-12">
+
+      <div class="row">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-4" style="border-right-color: #31708f;border-right-style:solid;">
+              <!-- <div class="ratio img-responsive img-circle" style="background-image: url(https://i.chzbgr.com/original/320517/hF2F61F54/);"></div> -->
+
+              <p style="font-size:12px;margin-bottom:0px;white-space:nowrap;">{{post.title}}</p>
+              <p style="font-size:12px;margin-bottom:0px;white-space:nowrap;"></p>
+              <p style="font-size:12px;margin-bottom:0px;white-space:nowrap;">Post dodano: {{post.date|date}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lx-10 col-lg-9 col-md-8 col-sm-6  col-xs-12 ">
+          <h6 class="card-title">
+            {{post.title}}
+          </h6>
+          <hr />
+          <p style="font-size:12px;">Attachments:<br/>
+          </p>
+          <div *ngFor="let attachment of post.attachments" >
+            <p>{{attachment.type}} {{attachment.data}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

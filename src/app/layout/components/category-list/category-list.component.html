@@ -1,0 +1,29 @@
+<input type="button" (click)="Click()" value="click me"/>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-6 ">
+                <h4 class="card-title">Gry offline</h4>
+            </div>
+            <div class="col-sm-2">
+                <h4 class="card-title">Wątki</h4>
+
+
+            </div>
+            <div class="col-sm-2">
+                <h4 class="card-title">Posty</h4>
+
+
+            </div>
+            <div class="col-sm-2">
+                <h4 class="card-title">Ostatni Post</h4>
+
+
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let category of categories">
+        <app-category [category]="category" ></app-category>
+    </div>
+</div>
+<router-outlet></router-outlet>

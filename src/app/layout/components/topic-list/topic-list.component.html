@@ -1,0 +1,21 @@
+<a [routerLink]="['/dashboard']" routerLinkActive="active">Wróć</a><br/>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-sm-6 ">
+        <h4 class="card-title">Wątki</h4>
+      </div>
+      <div class="col-sm-2">
+        <h4 class="card-title">Odpowiedzi</h4>
+      </div>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-2">
+        <h4 class="card-title">Ostatni Post</h4>
+      </div>
+    </div>
+  </div>
+  <div class="card-body" *ngFor="let topic of topics | orderBy: order : true">
+    <app-topic [topic]=topic  (elementDeleted)="onElementDeleted(topic)" ></app-topic>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="row border_post">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-6 ">
+        <h6 class="card-title"><a [routerLink]="['/posts',topic.id]" routerLinkActive="active" >{{topic.title}}</a> </h6>
+        <h6 class="card-title">{{topic.body}} </h6>
+        <p style="font-size:10px;">{{topic.author}} {{topic.date| date}}</p>
+      </div>
+      <div class="col-sm-2">
+        <h6 class="card-title">{{topic.sticky}}</h6>
+      </div>
+      <div class="col-sm-2">
+        <h6 class="card-title">9340234</h6>
+      </div>
+      <div class="col-sm-2 ">
+        <p class="p_category_lastPostInfo"> <input type="button" class="btn btn-danger "  (click)="Delete(topic.id)" value="Delete"></p>
+
+      </div>
+    </div>
+  </div>
+</div>

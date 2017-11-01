@@ -1,0 +1,22 @@
+<div [@routerTransition]>
+    <h2 class="text-muted"><small></small></h2>
+    <app-category-list></app-category-list>
+    <br/><br/><br/>
+ 
+    <br /><br /><br /><br />
+    <div id="googleBtn"><a href="https://gamersoc-backend.herokuapp.com/googleLogin">Log in with Google </a></div>
+    <br /><br /><br /><br />
+ 
+    <div class="row">
+        <div class="col-sm-12 buttons_margin " style="display:inline-block">
+            <input class="btn btn-primary d-inline-block" style="margin-top: -5px;" value="Dodaj nowy post" /> <input type="text" class="form-control d-inline-block" id="" placeholder="Przeszukaj ten dział">
+            <input class="btn btn-success d-inline-block" style="margin-top: -5px;" value="Szukaj" />
+        </div>
+ 
+    </div>
+    
+    <ckeditor [(ngModel)]="content" debounce="500">
+           <input value="dodaj zdjecie"/>
+          </ckeditor>
+          
+</div>
