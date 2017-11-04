@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Post } from 'app/layout/models/Post';
 import { PostService } from 'app/layout/services/post.service';
 
@@ -10,10 +10,17 @@ import { PostService } from 'app/layout/services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  @Input('post') post:Post;
-  constructor() { }
+  @Input('post') post: Post;
+  @Output()
+  elementDeleted: EventEmitter<any> = new EventEmitter();
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
   }
 
+  Delete(id: string) {
+console.log("post id:" +id);
+    this.postService.deletePost(id);
+    this.elementDeleted.emit();
+  }
 }

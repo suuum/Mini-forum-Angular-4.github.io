@@ -7,12 +7,14 @@ import { TopicComponent } from '../topic/topic.component';
 import { PageHeaderModule } from '../../../shared';
 import { OrderModule } from 'ngx-order-pipe';
 import { CreateTopicComponent } from 'app/layout/components/create-topic/create-topic.component';
+import {CKEditorModule} from 'ng2-ckeditor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
         TopicsRoutingModule,
-        PageHeaderModule,OrderModule
+        PageHeaderModule,OrderModule, FormsModule, ReactiveFormsModule,CKEditorModule
     ],
     declarations: [TopicComponent,TopicListComponent,CreateTopicComponent]
 })

@@ -1,3 +1,4 @@
+<a (click)="backClicked();" >Wróć</a><br/>
 <div class="row">
   <div class="col-sm-12 buttons_margin " style="display:inline-block">
     <input class="btn btn-primary d-inline-block" style="margin-top: -5px;" value="Odpowiedz" />
@@ -10,7 +11,7 @@
 <div class="card">
   <div class="card-body">
     <div *ngFor="let post of posts">
-      <app-post [post]="post"></app-post>
+      <app-post [post]="post" (elementDeleted)="onElementDeleted(post)" ></app-post>
     </div>
 
     <br />

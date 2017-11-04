@@ -17,13 +17,12 @@ export class TopicListComponent implements OnInit {
   constructor(private topicService: TopicService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log(this.id);
     });
     
     this.topicService.getTopicsByCategoryID(this.id).subscribe(topics => {
       this.topics= topics.sort(function (a, b) {
-        let first:number = a.Sticky==true?1:0;
-        let second:number = b.Sticky==true?1:0;
+        let first:number = a.sticky==true?1:0;
+        let second:number = b.sticky==true?1:0;
           if((first>second) )
          {
            return 1;
@@ -35,11 +34,9 @@ export class TopicListComponent implements OnInit {
          return 0;
         });
       
-     // this.topics = topics;
-      console.log(this.topics);
+     // this.topics = topics;    console.log(this.topics);
     });
-    console.log(this.topics + "Dupa");
-
+  
   }
 
   onElementDeleted(element) {

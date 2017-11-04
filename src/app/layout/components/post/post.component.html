@@ -14,7 +14,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lx-10 col-lg-9 col-md-8 col-sm-6  col-xs-12 ">
+        <div class="col-lx-9 col-lg-9 col-md-8 col-sm-6  col-xs-12 ">
           <h6 class="card-title">
             {{post.title}}
           </h6>
@@ -25,7 +25,9 @@
             <p>{{attachment.type}} {{attachment.data}}</p>
           </div>
         </div>
-
+        <div class="col-sm-1 ">
+          <input type="button" class="btn btn-danger "  (click)="Delete(post.id)" value="Delete">          
+        </div>
       </div>
     </div>
   </div>

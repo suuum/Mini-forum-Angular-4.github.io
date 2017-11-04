@@ -1,10 +1,10 @@
 export class Topic{
-    Author: string;
-    Body: string;
-    Date: Date;
-    Id: string;
-    Posts:string[];
-    Sticky: boolean;
-    Title: string;
+    author: string;
+    body: string;
+    date: Date;
+    id: string;
+    posts:string[];
+    sticky: boolean;
+    title: string;
     showChild:boolean = true;
 }

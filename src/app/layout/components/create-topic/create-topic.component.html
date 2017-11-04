@@ -1,3 +1,20 @@
-<p>
-  create-topic works!
-</p>
+<div class="container">
+  <h1>Add user</h1>
+  <form [formGroup]="myForm"  (ngSubmit)="save(myForm.value, myForm.valid)">
+    <div class="form-group">
+      <label for="">Name</label>
+      <ckeditor debounce="500" formControlName="name">
+        <input value="dodaj zdjecie" />
+      </ckeditor>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="margin-20">
+      <div>myForm details:-</div>
+      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+      <pre>Is myForm submitted?: <br>{{submitted | json}}</pre>
+      <pre>myForm value: <br>{{myForm.value | json}}</pre>
+    </div>
+  </form>
+</div>
+
+

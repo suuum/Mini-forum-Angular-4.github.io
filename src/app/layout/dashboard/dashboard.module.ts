@@ -18,7 +18,7 @@ import { CategoryListComponent } from '../components/category-list/category-list
 import { CategoryComponent } from '../components/category/category.component';
 import { PostComponent } from '../components/post/post.component';
 import { PostListComponent } from '../components/post-list/post-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {CKEditorModule} from 'ng2-ckeditor';
 import { TopicComponent } from 'app/layout/components/topic/topic.component';
 import { TopicListComponent } from 'app/layout/components/topic-list/topic-list.component';
@@ -30,7 +30,7 @@ import { CreateCategoryComponent } from 'app/layout/components/create-category/c
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         DashboardRoutingModule,
-        StatModule,FormsModule,CKEditorModule
+        StatModule,FormsModule,CKEditorModule,FormsModule, ReactiveFormsModule
     ],
     declarations: [
         DashboardComponent,

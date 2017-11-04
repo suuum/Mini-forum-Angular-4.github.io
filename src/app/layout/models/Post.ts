@@ -1,13 +1,13 @@
 export class Post {
-    Attachments:Attachments [];
-    Author: String;
-    Body: String;
-    Date: Date;
-    Id: String;
-    Title: String;
+    attachments:Attachments [];
+    author: String;
+    body: String;
+    date: Date;
+    id: String;
+    title: String;
 }
 
 export class Attachments {
-    Data: String;
-    Type: String;
+    data: String;
+    type: String;
 }

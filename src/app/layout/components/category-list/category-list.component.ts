@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from '../../services/category.service';
-import {Category} from '../../models/Category';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../models/Category';
 import { CategoryComponent } from '../category/category.component';
 @Component({
   selector: 'app-category-list',
@@ -10,19 +10,20 @@ import { CategoryComponent } from '../category/category.component';
 })
 export class CategoryListComponent implements OnInit {
 
-  public categories: Array<Category> =[];
-  constructor(private categoryService: CategoryService) { 
+  public categories: Array<Category> = [];
+  constructor(private categoryService: CategoryService) {
     this.categoryService.getAllCategories().subscribe(categories => this.categories = categories);
 
   }
-  Click(){
-    console.log("dupa");
-    let category:Category;
-    category=new Category();
-    category.description="dupa2";
-    category.title="dupa 3";
-    this.categoryService.logout();
-  }
+
   ngOnInit() {
+  }
+
+  onElementDeleted(element) {
+    var index = this.categories.findIndex((elt) => (elt === element));
+    if (index != -1) {
+      this.categories.splice(index, 1);
+    }
+
   }
 }
