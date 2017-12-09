@@ -20,14 +20,6 @@ export class CreateCategoryComponent implements OnInit {
   constructor(private _fb: FormBuilder, private categoryService: CategoryService, private router: Router) { }
 
   ngOnInit() {
-    // the long way
-    // this.myForm = new FormGroup({
-    //     name: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
-    //     address: new FormGroup({
-    //         address1: new FormControl('', <any>Validators.required),
-    //         postcode: new FormControl('8000')
-    //     })
-    // });
 
     // the short way
     this.myForm = this._fb.group({
@@ -67,18 +59,18 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   save(model: Category, isValid: boolean) {
-  if(isValid==true){
-    this.submitted = true;
-    var category = new Category();
-    category.title = model.title;
-    category.description = model.description;
-    this.categoryService.createCategory(category);
-    console.log(model, isValid);
-    this.router.navigateByUrl('/dashboard');
-  }
-  else{
-    alert("zupa!!!");
-  }
+    if (isValid == true) {
+      this.submitted = true;
+      var category = new Category();
+      category.title = model.title;
+      category.description = model.description;
+      this.categoryService.createCategory(category);
+      console.log(model, isValid);
+      this.router.navigateByUrl('/dashboard');
+    }
+    else {
+      alert("zupa!!!");
+    }
   }
 
 }

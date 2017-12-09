@@ -1,21 +1,78 @@
 <div class="container">
-  <h1>Add user</h1>
-  <form [formGroup]="myForm"  (ngSubmit)="save(myForm.value, myForm.valid)">
+  <h1>Dodaj Post</h1>
+  <form [formGroup]="myForm" (ngSubmit)="save(myForm.value, myForm.valid)">
+
     <div class="form-group">
-      <label for="">Name</label>
-      <ckeditor debounce="500" formControlName="name">
+      <label for="">Post</label>
+      <ckeditor debounce="500" formControlName="body">
         <input value="dodaj zdjecie" />
       </ckeditor>
     </div>
+
+
     <button type="submit" class="btn btn-default">Submit</button>
+
     <div class="margin-20">
       <div>myForm details:-</div>
       <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
       <pre>Is myForm submitted?: <br>{{submitted | json}}</pre>
       <pre>myForm value: <br>{{myForm.value | json}}</pre>
+      <pre>image: <br>{{image | json}}</pre>
+
     </div>
+    <img src="{{myForm.value.image}}" style="max-height: 500px; max-width:500px;" />
   </form>
+
+  <div class="form-group">
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        Dodaj attachment
+      </div>
+    </div>
+    <div>
+      <div>
+        <div style="padding-top:20px">
+          <div class="row">
+            <div class="col-sm-12">
+              <input type="radio" checked="checked" [value]="0"  [(ngModel)]="attachementType" />
+              <label for="r1"> Zdjęcie</label>
+              <input type="radio" [value]="1"  [(ngModel)]="attachementType" />
+              <label for="r1"> Film</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div *ngIf="attachementType==0">
+            <div class="form-group">
+              <label for="title">Description</label>
+              <h2>{{name}}</h2>
+              <app-file-upload [showFileNameInput]="true" allowedTypes="image/*" uploadButtonText="Upload File"  [(ngModel)]="image"
+                name="image"></app-file-upload>
+              <input type="button" class="form-control" value="Dodaj" (click)="addAttachemnt()" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div *ngIf="attachementType==1">
+            <div class="form-group">
+              <label for="title">Url</label>
+              <input type="text" class="form-control" />
+              <input type="button" class="form-control" (click)="addAttachemnt()" value="Dodaj" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let attachment of imageArray">
+typ: {{attachment.type}}
+        <img src="{{attachment.data}}" style="max-height: 500px; max-width:500px;" />
+    </div>
+  </div>
 </div>
-
-
-

@@ -15,14 +15,14 @@
           </div>
         </div>
         <div class="col-lx-9 col-lg-9 col-md-8 col-sm-6  col-xs-12 ">
-          <h6 class="card-title">
-            {{post.title}}
+          <h6 class="card-title" innerHTML="{{post.body}}">
+           
           </h6>
           <hr />
           <p style="font-size:12px;">Attachments:<br/>
           </p>
           <div *ngFor="let attachment of post.attachments" >
-            <p>{{attachment.type}} {{attachment.data}}</p>
+            <p><img src="{{attachment.data}}" style="max-width:400px;max-height:400px;" />{{attachment.type}}</p>
           </div>
         </div>
         <div class="col-sm-1 ">

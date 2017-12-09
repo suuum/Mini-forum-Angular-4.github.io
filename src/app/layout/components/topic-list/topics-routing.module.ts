@@ -7,11 +7,8 @@ import { CreateTopicComponent } from 'app/layout/components/create-topic/create-
 
 const routes: Routes = [
     { path: '', component: TopicListComponent },
-    
-    { path: 'createTopic', component: CreateTopicComponent  },
-  
-    { path: ':id', component: TopicListComponent  }  
-
+    { path: 'createTopic/:id', component: CreateTopicComponent  },
+    { path: ':id', component: TopicListComponent  }
 ];
 
 @NgModule({

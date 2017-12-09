@@ -1,3 +1,4 @@
+import { FileUploadModule,FileUploadComponent } from './../FileModuleComponent/FileUploadModule';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +9,6 @@ import { PageHeaderModule } from '../../../shared';
 import { OrderModule } from 'ngx-order-pipe';
 import { CreatePostComponent } from 'app/layout/components/create-post/create-post.component';
 import { CKEditorModule } from 'ng2-ckeditor';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,8 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         CommonModule,
         PostsRoutingModule,
         PageHeaderModule,
-        OrderModule,CKEditorModule,FormsModule,ReactiveFormsModule
+        OrderModule,CKEditorModule,FormsModule,ReactiveFormsModule,FileUploadModule
     ],
-    declarations: [PostComponent,PostListComponent,CreatePostComponent]
+    declarations: [PostComponent,PostListComponent,CreatePostComponent,FileUploadComponent]
 })
 export class PostsModule { }

@@ -19,3 +19,9 @@
     <app-topic [topic]=topic  (elementDeleted)="onElementDeleted(topic)" ></app-topic>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-12  text-center margin_List">
+    <a class="btn btn-primary" [routerLink]="['/topics/createTopic',id]" routerLinkActive="active">Dodaj odpowiedź</a>
+  </div>
+</div>

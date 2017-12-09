@@ -1,13 +1,16 @@
+import { User } from './User';
+
 export class Post {
-    attachments:Attachments [];
-    author: String;
-    body: String;
+    attachments: Attachments[];
+    author: string;
+    user: User;
+    body: string;
     date: Date;
-    id: String;
-    title: String;
+    id: string;
+    title: string;
 }
 
 export class Attachments {
-    data: String;
-    type: String;
+    data: string;
+    type: string;
 }

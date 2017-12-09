@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   }
 
   Delete(id: string) {
-console.log("post id:" +id);
+console.log('post id:' + id);
     this.postService.deletePost(id);
     this.elementDeleted.emit();
   }

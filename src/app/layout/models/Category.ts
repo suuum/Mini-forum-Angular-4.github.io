@@ -1,6 +1,7 @@
-export class Category{
-id:String;
-description:String;
-threads:String[];
-title:String;
+export class Category {
+  id: string;
+  description: string;
+  threads: string[];
+  title: string;
 }
+

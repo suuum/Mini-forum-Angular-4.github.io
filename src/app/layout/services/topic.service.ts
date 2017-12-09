@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
+import { TopicPost } from 'app/layout/models/TopicPost';
 
 @Injectable()
 export class TopicService {
@@ -33,13 +34,13 @@ export class TopicService {
             .catch(this.handleError);
     }
 
-    createTopic(topic: Topic): void {
+    createTopic(topic: TopicPost,sectionId:String): void {
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers, withCredentials: true });
         let body = JSON.stringify(topic);
         console.log(body);
-        this.http.post(this.apiLink + 'messaging/threads', body, options)
+        this.http.post(this.apiLink + 'messaging/threads?sectionId='+sectionId, body, options)
             .catch(this.handleError)
             .subscribe();
     }

@@ -20,8 +20,8 @@ export class CategoryListComponent implements OnInit {
   }
 
   onElementDeleted(element) {
-    var index = this.categories.findIndex((elt) => (elt === element));
-    if (index != -1) {
+    const index = this.categories.findIndex((elt) => (elt === element));
+    if (index !== -1) {
       this.categories.splice(index, 1);
     }
 

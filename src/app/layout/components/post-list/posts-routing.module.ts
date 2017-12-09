@@ -6,7 +6,6 @@ import { CreatePostComponent } from 'app/layout/components/create-post/create-po
 
 
 const routes: Routes = [
-    { path: '', component: PostListComponent },
     { path: 'createPost/:id', component: CreatePostComponent },
     { path: ':id', component: PostListComponent  }
 ];

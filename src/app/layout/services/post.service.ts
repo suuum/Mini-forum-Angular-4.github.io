@@ -1,3 +1,4 @@
+import { User } from './../models/User';
 import { Injectable } from '@angular/core';
 
 import { Post } from '../models/Post';
@@ -19,25 +20,31 @@ export class PostService {
     }
 
     getAllPost(id: string): Observable<Post[]> {
-        let options = new RequestOptions({ withCredentials: true });
+        const options = new RequestOptions({ withCredentials: true });
         return this.http.get(this.apiLink + 'messaging/posts?threadId=' + id, options)
             .map((response: Response) => <Post[]>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    createPost(post: Post): void {
+    getPostUser(id: string): Observable<User> {
+        const options = new RequestOptions({ withCredentials: true });
+        return this.http.get(this.apiLink + 'users/find/id?email=' + id, options)
+            .map((response: Response) => <User>response.json())
+            .catch(this.handleError);
+    }
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers, withCredentials: true });
-        let body = JSON.stringify(post);
+    createPost(post: Post, threadId: String): void {
+
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers, withCredentials: true});
+        const body = JSON.stringify(post);
         console.log(body);
-        this.http.post(this.apiLink + 'messaging/posts', body, options)
+        this.http.post(this.apiLink + 'messaging/posts?threadId=' + threadId, body, options)
             .subscribe();
     }
 
     deletePost(id: string): void {
-        let options = new RequestOptions({ withCredentials: true });
+        const options = new RequestOptions({ withCredentials: true });
         this.http.delete(this.apiLink + 'messaging/posts?postId=' + id, options)
             .catch(this.handleError).subscribe();
     }
@@ -46,7 +53,7 @@ export class PostService {
         console.error('An error occurred', error); // for demo purposes only
         console.log(error.status);
         //  window.location.href = "/login";
-        if (error.status == "401") { window.location.href = "/login"; }
+        if (error.status === '401') { window.location.href = '/login'; }
         return Promise.reject(error.message || error);
     }
 }

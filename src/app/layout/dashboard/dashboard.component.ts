@@ -12,7 +12,8 @@ import {Category} from '../models/Category';
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
-    public categories: Array<Category> =[];
+    public categories: Array<Category>= [];
+    content: String;
     constructor(private categoryService: CategoryService) {
         this.categoryService.getCategories().then(categories => this.categories = categories);
         this.sliders.push({
@@ -45,9 +46,9 @@ export class DashboardComponent implements OnInit {
                 voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
         });
     }
-    content:String;
+
     ngOnInit() {
-        this.content="dupa123"
+        this.content = 'dupa123';
     }
 
     public closeAlert(alert: any) {
